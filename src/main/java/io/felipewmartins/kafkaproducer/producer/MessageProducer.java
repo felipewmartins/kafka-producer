@@ -16,5 +16,6 @@ public class MessageProducer {
 	
 	public void send(@RequestBody String data) {
 		final String randomUUID = UUID.randomUUID().toString();
+		kafkaTemplate.send("messageTopic", randomUUID, data);
 	}
 }
